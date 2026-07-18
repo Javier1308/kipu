@@ -10,8 +10,9 @@ export function useAuth() {
   useEffect(() => {
     const load = async (userId?: string) => {
       if (!userId) { setProfile(null); setLoading(false); return }
-      setProfile(await auth.profile(userId))
-      setLoading(false)
+      const p = await auth.profile(userId)
+      if (!p) { await auth.signOut(); return }
+      setProfile(p); setLoading(false)
     }
     auth.currentUserId().then(load)
     return auth.onAuthChange(load)
