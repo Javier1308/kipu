@@ -29,15 +29,14 @@ También pueden correrse directo:
 node --env-file=.env scripts/seed.mjs
 ```
 
-Credenciales demo: usuario `*@kipu.demo`, contraseña `<DEMO_PASSWORD>`
-(configurable con `DEMO_PASSWORD` en el entorno).
+Credenciales demo: usuario `*@kipu.demo`, contraseña definida en `DEMO_PASSWORD` (obligatoria).
 
 ## `lib/client.mjs`
 
 Helper compartido por todos los scripts. Evita repetir la URL/credenciales y expone:
 
 - `db` — cliente de Supabase ya autenticado con la service role key.
-- `DEMO_PASS` — contraseña demo por defecto.
+- `DEMO_PASS` — contraseña demo, leída de `DEMO_PASSWORD`.
 - `ensureAuthUser(email, password?)` — busca o crea un usuario de Auth y devuelve su `id`.
 
 ## Cómo agregar un script nuevo
