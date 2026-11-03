@@ -6,9 +6,11 @@ MVP hackathon UGEL: los docentes suben evidencias (PDF/PPTX/XLSX), MarkItDown la
 
 - **Web**: https://kipu-one.vercel.app
 - **API**: https://kipu-api-production.up.railway.app (Railway, con Python + markitdown)
-- **DB/Auth/Storage**: Supabase `<SUPABASE_PROJECT_REF>`
+- **DB/Auth/Storage**: Supabase
 
-## Credenciales demo (password: `<DEMO_PASSWORD>`)
+## Cuentas demo
+
+La contraseña se define con `DEMO_PASSWORD` al ejecutar `api/scripts/seed.mjs` y no se publica en este repositorio.
 
 | Rol | Correo |
 |---|---|
@@ -33,7 +35,7 @@ PDFs de prueba listos: pedir a Claude regenerar `sesion-v1.pdf` (sin retroalimen
 
 ```bash
 # migración + seed (una vez)
-psql "host=<pooler-host> port=6543 user=postgres.<SUPABASE_PROJECT_REF> dbname=postgres sslmode=require" -f supabase/migrations/001_init.sql
+psql "host=<pooler-host> port=6543 user=postgres.<project-ref> dbname=postgres sslmode=require" -f supabase/migrations/001_init.sql
 cd api && SUPABASE_SERVICE_ROLE_KEY=... node seed.mjs
 
 # api (requiere markitdown: pip install 'markitdown[pdf,pptx,xlsx]')

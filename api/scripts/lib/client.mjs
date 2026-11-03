@@ -18,7 +18,7 @@ export const db = createClient(need('SUPABASE_URL'), need('SUPABASE_SERVICE_ROLE
 })
 
 // Password única para todas las cuentas demo.
-export const DEMO_PASS = process.env.DEMO_PASSWORD || '<DEMO_PASSWORD>'
+export const DEMO_PASS = need('DEMO_PASSWORD')
 
 // Busca (o crea si no existe) un usuario de Auth y devuelve su id.
 export async function ensureAuthUser(email, password = DEMO_PASS) {

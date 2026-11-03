@@ -102,4 +102,4 @@ await db.from('alerts').insert([
 
 // bucket privado
 await db.storage.createBucket('evidence', { public: false }).catch(() => {})
-console.log('seed ok:', Object.keys(ids).length, 'usuarios | password demo:', PASS)
+console.log('seed ok:', Object.keys(ids).length, 'usuarios')
